@@ -10,14 +10,13 @@ public class Heartbar : MonoBehaviour
     public GameObject heartPrefab;
     public Player player;
     
-   
 
     //public int health = 2;
     //public int maxhealth = 4;
     List<heart_script> hearts = new List<heart_script>();
     
   
-
+    
     private void OnEnable()
     {
         Player.OnDamaged += DrawHearts;
@@ -27,7 +26,7 @@ public class Heartbar : MonoBehaviour
     {
         Player.OnDamaged -= DrawHearts;
     }
-
+    
     private void Start()
     {
         DrawHearts();
@@ -41,7 +40,7 @@ public class Heartbar : MonoBehaviour
         // based off the max health
 
         float maxHealthRemainder = player.maxHealth % 2;
-        Debug.Log("maxHealth is: "+player.maxHealth);
+        //Debug.Log("maxHealth is: "+player.maxHealth);
         int heartsToMake = (int)((player.maxHealth / 2) + maxHealthRemainder);
         for(int i = 0; i < heartsToMake; i++) 
         {

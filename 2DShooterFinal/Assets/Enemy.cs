@@ -14,7 +14,7 @@ public class Enemy : Entity
         if (health <= 0) { 
             Destroy(gameObject);
             }
-        Debug.Log(health);
+        //Debug.Log(health);
     }
     void trackPlayer() 
     { 
@@ -23,5 +23,14 @@ public class Enemy : Entity
         
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("colision");
+            collision.gameObject.GetComponent<Player>().TakeDamage(1);
+        }
+    }
+
 }

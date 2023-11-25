@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    private void Start()
+    private void Update()
     {
         //if(health <=0){gameoverScreen()}
+        Debug.Log(health);
     }
 }
