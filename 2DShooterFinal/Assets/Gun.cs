@@ -32,6 +32,6 @@ public class Gun : MonoBehaviour
         Vector2 dir = mousePos - rb.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
-        Debug.Log(dir);
+        
     }
 }

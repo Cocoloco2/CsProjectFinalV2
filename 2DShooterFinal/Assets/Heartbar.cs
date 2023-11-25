@@ -8,22 +8,25 @@ using static UnityEditor.Progress;
 public class Heartbar : MonoBehaviour
 {
     public GameObject heartPrefab;
-    public PlayerHealth playerHealth;
+    public Player player;
+    
+   
 
     //public int health = 2;
     //public int maxhealth = 4;
     List<heart_script> hearts = new List<heart_script>();
+    
+  
 
     private void OnEnable()
     {
-        PlayerHealth.OnPlayerDamaged += DrawHearts;
+        Player.OnDamaged += DrawHearts;
     }
 
     private void OnDisable()
     {
-        PlayerHealth.OnPlayerDamaged -= DrawHearts;
+        Player.OnDamaged -= DrawHearts;
     }
-
 
     private void Start()
     {
@@ -36,8 +39,10 @@ public class Heartbar : MonoBehaviour
 
         //Determine how many hearts to make total 
         // based off the max health
-        float maxHealthRemainder = playerHealth.maxhealth % 2;
-        int heartsToMake = (int)((playerHealth.maxhealth / 2) + maxHealthRemainder);
+
+        float maxHealthRemainder = player.maxHealth % 2;
+        Debug.Log("maxHealth is: "+player.maxHealth);
+        int heartsToMake = (int)((player.maxHealth / 2) + maxHealthRemainder);
         for(int i = 0; i < heartsToMake; i++) 
         {
             CreateEmptyHeart();
@@ -45,7 +50,7 @@ public class Heartbar : MonoBehaviour
 
         for(int i =0; i<hearts.Count; i++)
         {
-            int heartStatusRemainder = (int)Mathf.Clamp(playerHealth.health - (i * 2), 0, 2);
+            int heartStatusRemainder = (int)Mathf.Clamp(player.health - (i * 2), 0, 2);
             hearts[i].SetHeartImage((HeartStatus)heartStatusRemainder);
         }
     }

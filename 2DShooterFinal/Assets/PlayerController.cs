@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +8,7 @@ using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
+    private float moveSpeed;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
 
@@ -19,8 +20,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+    moveSpeed = GetComponent<Player>().moveSpeed;
+        Debug.Log(moveSpeed);
+    rb = GetComponent<Rigidbody2D>();
+    animator = GetComponent<Animator>();
         
     }
 
