@@ -18,7 +18,6 @@ public class Player : Entity
     private void Update()
     {
         pointerInput = getPointerInput();
-        //weaponParent.PointerPosition = getPointerInput();
         weaponParent.PointerPosition = pointerInput;
     }
     private Vector2 getPointerInput() 
