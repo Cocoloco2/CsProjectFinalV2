@@ -6,32 +6,27 @@ using UnityEngine;
 public class Gun : MonoBehaviour
     
 {
-    public Rigidbody2D rb;
-
     public Camera cam;
-    public float moveSpeed = 5f; 
+   
 
     Vector2 mousePos;
-
-    //Vector2 movement = spiller 
-    Vector2 movement;
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
+     
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-      
-        Vector2 dir = mousePos - rb.position;
+        Vector2 position = transform.position;
+        float z = transform.position.z;
+
+
+        Vector2 dir = mousePos - position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        z = angle;
         
     }
 }

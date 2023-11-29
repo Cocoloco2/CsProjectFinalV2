@@ -28,7 +28,6 @@ public class Enemy : Entity
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("colision");
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
         }
     }
