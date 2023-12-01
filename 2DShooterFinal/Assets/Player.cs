@@ -5,20 +5,20 @@ using UnityEngine.InputSystem;
 
 public class Player : Entity
 {
-    public WeaponParent weaponParent;
+    //public WeaponParent weaponParent;
     [SerializeField]
     private InputActionReference PointerPosition;
     private Vector2 pointerInput;
 
     private void Awake()
     {
-       weaponParent = GetComponentInChildren<WeaponParent>();
+       //weaponParent = GetComponentInChildren<WeaponParent>();
     }
 
     private void Update()
     {
-        pointerInput = getPointerInput();
-        weaponParent.PointerPosition = pointerInput;
+        //pointerInput = getPointerInput();
+        //weaponParent.PointerPosition = pointerInput;
     }
     private Vector2 getPointerInput() 
     {
