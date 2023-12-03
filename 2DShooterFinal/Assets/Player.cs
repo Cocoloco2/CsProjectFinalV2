@@ -5,20 +5,24 @@ using UnityEngine.InputSystem;
 
 public class Player : Entity
 {
-    //public WeaponParent weaponParent;
+    public WeaponParent weaponParent;
     [SerializeField]
     private InputActionReference PointerPosition;
     private Vector2 pointerInput;
 
+    //denne linje skal kun bruges hvis weapon er et child til player
+    /*
     private void Awake()
     {
-       //weaponParent = GetComponentInChildren<WeaponParent>();
+       weaponParent = GetComponentInChildren<WeaponParent>();
     }
-
+    */
     private void Update()
     {
-        //pointerInput = getPointerInput();
-        //weaponParent.PointerPosition = pointerInput;
+        weaponParent.transform.position = this.transform.position;
+        pointerInput = getPointerInput();
+        weaponParent.PointerPosition = pointerInput;
+       
     }
     private Vector2 getPointerInput() 
     {
