@@ -14,12 +14,12 @@ public class Player : Entity
     /*
     private void Awake()
     {
-       weaponParent = GetComponentInChildren<WeaponParent>();
+       weaponParent = GetComponent<WeaponParent>();
     }
     */
     private void Update()
     {
-        weaponParent.transform.position = this.transform.position;
+        weaponParent.transform.position = transform.position;
         pointerInput = getPointerInput();
         weaponParent.PointerPosition = pointerInput;
        
