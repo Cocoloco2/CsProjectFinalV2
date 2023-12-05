@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class WalkerGenerator : MonoBehaviour
 {
+    //enum to determine what state the tiles are in the current walker position. Can only be FLOOR, WALL or EMPTY
     public enum Grid
     {
         FLOOR,
@@ -14,20 +15,20 @@ public class WalkerGenerator : MonoBehaviour
 
 
     //Variables
-    public Grid[,] gridHandler;
-    public List<WalkerObject> Walkers;
-    public Tilemap tileMap;
-    public Tilemap tileMap2;
-    public Tile Floor;
-    public Tile Wall;
-    public int MapWidth = 30;
+    public Grid[,] gridHandler; //two dimentional array since we are working with x and y values
+    public List<WalkerObject> Walkers; //list of the walker class so we can track of all active wlakers and their positions
+    public Tilemap tileMap; //reference for tilemap with no collision
+    public Tilemap tileMap2; //reference for tilemap with collision
+    public Tile Floor; //reference for floor sprite
+    public Tile Wall; //reference for wall sprite
+    public int MapWidth = 30; 
     public int MapHeight = 30;
-    public GameObject PlayerPrefab;
+    public GameObject PlayerPrefab; //reference for the playerprefab
 
     public int MaximumWalkers = 10;
-    public int TileCount = default;
-    public float FillPercentage = 0.4f;
-    public float WaitTime = 0.05f;
+    public int TileCount = default; //to count the amount of tiles
+    public float FillPercentage = 0.4f; //used to compare amount of floor tiles with percentage of the total grid we want covered
+    public float WaitTime = 0.05f; //pause between each succesfull movement
 
 
     void Start()
@@ -35,13 +36,13 @@ public class WalkerGenerator : MonoBehaviour
         InitializeGrid();
     }
 
-    
 
+    //main setup of our grid. Grid dimension and properties setup, so we can create our first walker object
     void InitializeGrid()
     {
         gridHandler = new Grid[MapWidth, MapHeight];
 
-        for (int x = 0; x < gridHandler.GetLength(0); x++)
+        for (int x = 0; x < gridHandler.GetLength(0); x++) //loops through the grid and makes every spot empty
         {
             for (int y = 0; y < gridHandler.GetLength(1); y++)
             {
@@ -49,21 +50,24 @@ public class WalkerGenerator : MonoBehaviour
             }
         }
 
-        Walkers = new List<WalkerObject>();
+        Walkers = new List<WalkerObject>(); //create new instance of the walker object list
 
-        Vector3Int TileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0);
+        //gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2
+        Vector3Int TileCenter = new Vector3Int(10, 10, 0); //reference to the exact center of tilemap
 
-        WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f);
-        gridHandler[TileCenter.x, TileCenter.y] = Grid.FLOOR;
+        //create walkerobject
+        WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f); 
+        gridHandler[TileCenter.x, TileCenter.y] = Grid.FLOOR; //set current grid location to floor
         tileMap.SetTile(TileCenter, Floor);
-        tileMap2.SetTile(TileCenter, Floor);
-        Walkers.Add(curWalker);
+        Walkers.Add(curWalker); //add current walker to walkers list
 
-        TileCount++;
+        TileCount++; //increase tilecount
 
-        StartCoroutine(CreateFloors());
+        StartCoroutine(CreateFloors()); //handles all the methods that the walker must follow
+
     }
 
+    //returns a single vector direction: up, down, left or right
     Vector2 GetDirection()
     {
         int choice = Mathf.FloorToInt(UnityEngine.Random.value * 3.99f);
@@ -85,36 +89,28 @@ public class WalkerGenerator : MonoBehaviour
 
     IEnumerator CreateFloors()
     {
-        while ((float)TileCount / (float)gridHandler.Length < FillPercentage)
+        //compare the tilecount as a float with the total size of grid, and continue looping until it becomes greater than fill percentage
+        while ((float)TileCount / (float)gridHandler.Length < FillPercentage) 
         {
-            bool hasCreatedFloor = false;
-            foreach (WalkerObject curWalker in Walkers)
+            bool hasCreatedFloor = false; //check if floor is created
+            foreach (WalkerObject curWalker in Walkers) //loop thorugh every walker in the list
             {
-                Vector3Int curPos = new Vector3Int((int)curWalker.Position.x, (int)curWalker.Position.y, 0);
+                Vector3Int curPos = new Vector3Int((int)curWalker.Position.x, (int)curWalker.Position.y, 0); //reference to current position of walker
 
-                if (gridHandler[curPos.x, curPos.y] != Grid.FLOOR)
+                if (gridHandler[curPos.x, curPos.y] != Grid.FLOOR) //check if tile is already an existing floor piece
                 {
-                    tileMap.SetTile(curPos, Floor);
-                    TileCount++;
-                    gridHandler[curPos.x, curPos.y] = Grid.FLOOR;
-                    hasCreatedFloor = true;
+                    tileMap.SetTile(curPos, Floor); //create floor at current position
+                    TileCount++; //increase tilecounter
+                    gridHandler[curPos.x, curPos.y] = Grid.FLOOR; //flag as tile as FLOOR (enum)
+                    hasCreatedFloor = true; //switch boolean
                 }
-                if (gridHandler[curPos.x, curPos.y] != Grid.FLOOR)
-                {
-                    tileMap2.SetTile(curPos, Floor);
-                    TileCount++;
-                    gridHandler[curPos.x, curPos.y] = Grid.FLOOR;
-                    hasCreatedFloor = true;
-                }
-
-
             }
 
             //Walker Methods
-            ChanceToRemove();
-            ChanceToRedirect();
-            ChanceToCreate();
-            UpdatePosition();
+            ChanceToRemove(); //loops thorugh walker list and compares random value with walkerschance. if it is less and walkercount is greater than 1 remove the walker
+            ChanceToRedirect(); //calls the get direction method and changes direction of walkers 
+            ChanceToCreate(); //can create one more walker if the amount of walkers is not greater than MaximumWalkers value
+            UpdatePosition(); //update position of walker, so we know where it is in the grid
 
             if (hasCreatedFloor)
             {
@@ -123,9 +119,10 @@ public class WalkerGenerator : MonoBehaviour
         }
 
         StartCoroutine(CreateWalls());
-        GameObject player = Instantiate(PlayerPrefab);
+        
 
-            }
+
+    }
 
     void ChanceToRemove()
     {
@@ -160,11 +157,11 @@ public class WalkerGenerator : MonoBehaviour
         {
             if (UnityEngine.Random.value < Walkers[i].ChanceToChange && Walkers.Count < MaximumWalkers)
             {
-                Vector2 newDirection = GetDirection();
-                Vector2 newPosition = Walkers[i].Position;
+                Vector2 newDirection = GetDirection(); //new direction for the new walker
+                Vector2 newPosition = Walkers[i].Position; //position for the new walker (same as the current walker)
 
-                WalkerObject newWalker = new WalkerObject(newPosition, newDirection, 0.5f);
-                Walkers.Add(newWalker);
+                WalkerObject newWalker = new WalkerObject(newPosition, newDirection, 0.5f); //instantiate new walker
+                Walkers.Add(newWalker); //add new walker
             }
         }
     }
@@ -181,17 +178,20 @@ public class WalkerGenerator : MonoBehaviour
         }
     }
 
+    //creating the walls around the floors
     IEnumerator CreateWalls()
     {
-        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        //loop through our grid. we say '-1' since there needs to be space for the walls
+        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++) //loop through our x-values of grid
         {
-            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)  //loop through our y-values of grid
             {
-                if (gridHandler[x, y] == Grid.FLOOR)
+                if (gridHandler[x, y] == Grid.FLOOR) //if the x and value contain a floor: continue
                 {
                     bool hasCreatedWall = false;
 
-                    if (gridHandler[x + 1, y] == Grid.EMPTY)
+                    //4 diffrent if statements creating a wall beside the floor tile detected
+                    if (gridHandler[x + 1, y] == Grid.EMPTY) 
                     {
                         tileMap2.SetTile(new Vector3Int(x + 1, y, 0), Wall);
                         gridHandler[x + 1, y] = Grid.WALL;
@@ -223,6 +223,18 @@ public class WalkerGenerator : MonoBehaviour
                 }
             }
         }
+
+        instantiatePlayer(PlayerPrefab); //instantiate the player after the walls are created since the map is then done
+
+
     }
 
+    //instantiate a player with a position
+    void instantiatePlayer(GameObject playerPrefab)
+    {
+
+        Vector2 pos;
+        pos = new Vector2(2.0f, 2.0f);
+    GameObject player = Instantiate(playerPrefab, pos, transform.rotation);
+    }
 }
