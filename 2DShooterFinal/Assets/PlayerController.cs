@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
     moveSpeed = GetComponent<Player>().moveSpeed;
-        Debug.Log(moveSpeed);
     rb = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
         

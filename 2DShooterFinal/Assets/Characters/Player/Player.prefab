@@ -255,5 +255,7 @@ MonoBehaviour:
   health: 4
   maxHealth: 8
   moveSpeed: 0.92
-  weaponParent: {fileID: 0}
+  weapon: {fileID: 947246883398614214, guid: c001990133f88d6449810f4512162ee7, type: 3}
+  heartbar: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
+  weaponParent: {fileID: 7589666934210453501, guid: c001990133f88d6449810f4512162ee7, type: 3}
   PointerPosition: {fileID: -7319332357480716734, guid: 6f78b755d3c5285448d9c3f5931a376e, type: 3}

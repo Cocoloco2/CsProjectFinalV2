@@ -24,6 +24,8 @@ public class WalkerGenerator : MonoBehaviour
     public int MapWidth = 30; 
     public int MapHeight = 30;
     public GameObject PlayerPrefab; //reference for the playerprefab
+    [SerializeField] private ObjectSpawner objectSpawner;
+   
 
     public int MaximumWalkers = 10;
     public int TileCount = default; //to count the amount of tiles
@@ -223,8 +225,11 @@ public class WalkerGenerator : MonoBehaviour
                 }
             }
         }
-
-        instantiatePlayer(PlayerPrefab); //instantiate the player after the walls are created since the map is then done
+        Vector2 pos;
+        pos = new Vector2(2.0f, 2.0f);
+        //instantiatePlayer(PlayerPrefab); //instantiate the player after the walls are created since the map is then done
+        
+        objectSpawner.SpawnPlayer(pos, transform.rotation);
 
 
     }
@@ -233,8 +238,7 @@ public class WalkerGenerator : MonoBehaviour
     void instantiatePlayer(GameObject playerPrefab)
     {
 
-        Vector2 pos;
-        pos = new Vector2(2.0f, 2.0f);
-    GameObject player = Instantiate(playerPrefab, pos, transform.rotation);
+        
+    //GameObject player = Instantiate(playerPrefab, pos, transform.rotation);
     }
 }

@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : WeaponParent 
     
 {
-    public Camera cam;
+    
+    private Camera cam;
    
 
     Vector2 mousePos;
+
+    private void Awake()
+    {
+        cam = Camera.main;   
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,4 +35,5 @@ public class Gun : MonoBehaviour
         z = angle;
         
     }
+    
 }

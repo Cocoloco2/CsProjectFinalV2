@@ -7,18 +7,14 @@ using UnityEngine.UIElements;
 public class WeaponParent : MonoBehaviour
 {
     public Vector2 PointerPosition { get; set; }
-    public int Index {get; set;}
-    //[SerializeField] private InputActionReference PointerPosition;
 
-    
     private void Update()
     {
+ 
         //makes sure the object always spawn at the mouse position
-        //Vector3 test = PointerPosition.action.ReadValue<Vector2>();
-        //Debug.Log(test);
-        
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
         transform.right = direction;
+        Debug.Log(direction);
 
         Vector2 scale = transform.localScale;
         
@@ -33,13 +29,4 @@ public class WeaponParent : MonoBehaviour
         transform.localScale = scale;
         
     }
-    /*
-    private Vector2 getPointerInput()
-    {
-        Vector3 mousePos = PointerPosition.action.ReadValue<Vector2>();
-        mousePos.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(mousePos);
-    }
-
-    */
 }
