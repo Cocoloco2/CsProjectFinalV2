@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 715820656364447408}
   bulletPreFab: {fileID: 1654541407867202046, guid: 00b6aa03bb9517c40a54802129babf4f, type: 3}
-  bulletForce: 4.53
+  bulletForce: 1.78
 --- !u!114 &6882376968738965195
 MonoBehaviour:
   m_ObjectHideFlags: 0

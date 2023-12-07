@@ -13,20 +13,24 @@ public class Player : Entity
     [SerializeField]
     private InputActionReference PointerPosition;
     private Vector2 pointerInput;
+    Camera camera1;
 
     private void Awake()
     {
         GameObject Weapon = Instantiate(weapon);
         weaponParent = Weapon.GetComponent<WeaponParent>();
-        GameObject Heartbar = Instantiate(heartbar);
+        //GameObject Heartbar = Instantiate(heartbar);
+        camera1 = Camera.main;
+
     }
    
     private void Update()
     {
+        //this is pure black magic... dont ask about it
+        camera1.transform.position = this.transform.position-new Vector3(0,0,10);
         weaponParent.transform.position = transform.position;
         pointerInput = getPointerInput();
-        weaponParent.PointerPosition = pointerInput;
-       
+        weaponParent.PointerPosition = pointerInput;       
     }
     private Vector2 getPointerInput() 
     {

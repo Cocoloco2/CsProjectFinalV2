@@ -14,7 +14,7 @@ public class WeaponParent : MonoBehaviour
         //makes sure the object always spawn at the mouse position
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
         transform.right = direction;
-        Debug.Log(direction);
+        //Debug.Log(direction);
 
         Vector2 scale = transform.localScale;
         
