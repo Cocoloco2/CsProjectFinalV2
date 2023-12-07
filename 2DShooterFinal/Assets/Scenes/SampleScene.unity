@@ -413,7 +413,6 @@ MonoBehaviour:
   Wall: {fileID: 11400000, guid: d713ef2f849f4b14a9d63ef972dbdf4f, type: 2}
   MapWidth: 30
   MapHeight: 30
-  PlayerPrefab: {fileID: 0}
   objectSpawner: {fileID: 493191132}
   MaximumWalkers: 10
   TileCount: 0
@@ -445,7 +444,7 @@ GameObject:
   - component: {fileID: 493191133}
   - component: {fileID: 493191132}
   m_Layer: 0
-  m_Name: GameObject Manager
+  m_Name: GameObjectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

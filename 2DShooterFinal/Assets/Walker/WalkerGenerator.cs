@@ -23,8 +23,7 @@ public class WalkerGenerator : MonoBehaviour
     public Tile Wall; //reference for wall sprite
     public int MapWidth = 30; 
     public int MapHeight = 30;
-    public GameObject PlayerPrefab; //reference for the playerprefab
-    [SerializeField] private ObjectSpawner objectSpawner;
+    [SerializeField] private ObjectSpawner objectSpawner; //reference to the objectSpawner
    
 
     public int MaximumWalkers = 10;
@@ -225,20 +224,12 @@ public class WalkerGenerator : MonoBehaviour
                 }
             }
         }
+        //sets the Vector position of the player
         Vector2 pos;
         pos = new Vector2(2.0f, 2.0f);
-        //instantiatePlayer(PlayerPrefab); //instantiate the player after the walls are created since the map is then done
         
+        //calls the SpawnPlayer method from the ObjectSpawner script
         objectSpawner.SpawnPlayer(pos, transform.rotation);
 
-
-    }
-
-    //instantiate a player with a position
-    void instantiatePlayer(GameObject playerPrefab)
-    {
-
-        
-    //GameObject player = Instantiate(playerPrefab, pos, transform.rotation);
     }
 }
