@@ -21,6 +21,7 @@ public class WalkerGenerator : MonoBehaviour
     public Tilemap tileMap2; //reference for tilemap with collision
     public Tile Floor; //reference for floor sprite
     public Tile Wall; //reference for wall sprite
+    public Tile Background;
     public int MapWidth = 30; 
     public int MapHeight = 30;
     [SerializeField] private ObjectSpawner objectSpawner; //reference to the objectSpawner
@@ -47,6 +48,8 @@ public class WalkerGenerator : MonoBehaviour
         {
             for (int y = 0; y < gridHandler.GetLength(1); y++)
             {
+                Vector3Int pos = new Vector3Int(x, y, 0);
+                tileMap.SetTile(pos, Background);
                 gridHandler[x, y] = Grid.EMPTY;
             }
         }
