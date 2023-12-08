@@ -25,7 +25,12 @@ public class WalkerGenerator : MonoBehaviour
     public int MapWidth = 30; 
     public int MapHeight = 30;
     [SerializeField] private ObjectSpawner objectSpawner; //reference to the objectSpawner
-   
+    private Vector3Int TileCenter;
+    private static float x = 10.0f;
+    private static float y = 10.0f;
+    private float x1 = x / 5f;
+    private float y1 = x / 5f;
+
 
     public int MaximumWalkers = 10;
     public int TileCount = default; //to count the amount of tiles
@@ -57,12 +62,13 @@ public class WalkerGenerator : MonoBehaviour
         Walkers = new List<WalkerObject>(); //create new instance of the walker object list
 
         //gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2
-        Vector3Int TileCenter = new Vector3Int(10, 10, 0); //reference to the exact center of tilemap
+        TileCenter = new Vector3Int(10, 10, 0); //reference to the exact center of tilemap
 
         //create walkerobject
         WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f); 
         gridHandler[TileCenter.x, TileCenter.y] = Grid.FLOOR; //set current grid location to floor
         tileMap.SetTile(TileCenter, Floor);
+        Debug.Log(TileCenter.x + " " + TileCenter.y);
         Walkers.Add(curWalker); //add current walker to walkers list
 
         TileCount++; //increase tilecount
@@ -228,11 +234,12 @@ public class WalkerGenerator : MonoBehaviour
             }
         }
         //sets the Vector position of the player
-        Vector2 pos;
-        pos = new Vector2(2.0f, 2.0f);
+        Vector3 pos;
+        pos = new Vector3(2f, 2f,0f);
         
         //calls the SpawnPlayer method from the ObjectSpawner script
         objectSpawner.SpawnPlayer(pos, transform.rotation);
+        objectSpawner.SpawnEnemy(new Vector2(2.5f,2.5f), transform.rotation);
 
     }
 }

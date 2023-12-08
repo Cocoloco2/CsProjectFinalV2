@@ -19,18 +19,19 @@ public class Player : Entity
     {
         GameObject Weapon = Instantiate(weapon);
         weaponParent = Weapon.GetComponent<WeaponParent>();
-        //GameObject Heartbar = Instantiate(heartbar);
+        GameObject Heartbar = Instantiate(heartbar);
         camera1 = Camera.main;
 
     }
    
     private void Update()
     {
-        //this is pure black magic... dont ask about it
-        camera1.transform.position = this.transform.position-new Vector3(0,0,10);
+        //sets the main camera to be equal to the player transform and sets the depth to be -10 away from the player
+        camera1.transform.position = this.transform.position+new Vector3(0,0,-10);
         weaponParent.transform.position = transform.position;
         pointerInput = getPointerInput();
-        weaponParent.PointerPosition = pointerInput;       
+        weaponParent.PointerPosition = pointerInput;
+        Debug.Log(health);
     }
     private Vector2 getPointerInput() 
     {

@@ -10,6 +10,7 @@ public class Heartbar : MonoBehaviour
     public GameObject heartPrefab;
     public Player player;
     
+    
 
     //public int health = 2;
     //public int maxhealth = 4;
@@ -38,7 +39,7 @@ public class Heartbar : MonoBehaviour
 
         //Determine how many hearts to make total 
         // based off the max health
-
+       
         float maxHealthRemainder = player.maxHealth % 2;
         //Debug.Log("maxHealth is: "+player.maxHealth);
         int heartsToMake = (int)((player.maxHealth / 2) + maxHealthRemainder);

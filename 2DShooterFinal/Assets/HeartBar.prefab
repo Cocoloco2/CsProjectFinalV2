@@ -114,4 +114,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 8416182223418467138, guid: 9207eae08fe0ecd45a8179def7e07f09, type: 3}
-  player: {fileID: 0}
+  player: {fileID: -145753233744686123, guid: 10a25757f35654c43a5ae15e4e317641, type: 3}
