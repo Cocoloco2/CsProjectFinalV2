@@ -304,6 +304,7 @@ MonoBehaviour:
   tileMap2: {fileID: 866499596}
   Floor: {fileID: 11400000, guid: 284cb9c7d4efb504e979b3a8a03b749f, type: 2}
   Wall: {fileID: 11400000, guid: d713ef2f849f4b14a9d63ef972dbdf4f, type: 2}
+  Background: {fileID: 11400000, guid: 3f83d6e655fb4dd4fbace7d1367a5e18, type: 2}
   MapWidth: 30
   MapHeight: 30
   objectSpawner: {fileID: 493191132}
@@ -841,21 +842,11 @@ Tilemap:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845588287}
   m_Enabled: 1
-  m_Tiles:
-  - first: {x: -11, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 14
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+  m_Tiles: {}
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 284cb9c7d4efb504e979b3a8a03b749f, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -913,30 +904,30 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 12d669207a2210f4d9d8c3f70c7519ac, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 1
+  - m_RefCount: 0
     m_Data:
-      e00: 1
+      e00: 0
       e01: 0
-      e02: 0
-      e03: 0
+      e02: -1.395866e+10
+      e03: -1.395866e+10
       e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
+      e11: 0
+      e12: 4.92e-43
+      e13: 4.92e-43
+      e20: 0.000000012513652
+      e21: 1.4311427e+25
+      e22: 3.5037654e-19
+      e23: 1.096157e-19
+      e30: 4.5904e-41
+      e31: 4.96e-43
+      e32: 4.93e-43
+      e33: 4.96e-43
   m_TileColorArray:
-  - m_RefCount: 1
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 3.596e-41, g: 3.596e-41, b: 3.596e-41, a: 3.596e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
