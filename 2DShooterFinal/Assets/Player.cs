@@ -31,7 +31,7 @@ public class Player : Entity
         weaponParent.transform.position = transform.position;
         pointerInput = getPointerInput();
         weaponParent.PointerPosition = pointerInput;
-        Debug.Log(health);
+        //Debug.Log(health);
     }
     private Vector2 getPointerInput() 
     {

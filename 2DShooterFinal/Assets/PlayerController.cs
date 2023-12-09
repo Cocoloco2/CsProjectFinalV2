@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 public class PlayerController : MonoBehaviour
 {
     private float moveSpeed;
+    private Player player;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
 
@@ -20,7 +21,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    moveSpeed = GetComponent<Player>().moveSpeed;
+
+        player = gameObject.GetComponent<Player>();
+        moveSpeed = player.moveSpeed;
+        
+
     rb = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
         

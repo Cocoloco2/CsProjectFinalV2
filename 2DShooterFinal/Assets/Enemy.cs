@@ -10,6 +10,7 @@ public class Enemy : Entity
   
     private GameObject player;
     private float distanceToPlayer;
+    public ContactFilter2D contactFilter;
     private void Update()
     {
         trackPlayer();
@@ -24,7 +25,7 @@ public class Enemy : Entity
         player = GameObject.FindWithTag("Player");
      distanceToPlayer = Vector2.Distance(transform.position,player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
-        Debug.Log(player.transform.position);
+        //Debug.Log(player.transform.position);
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
     }
 
