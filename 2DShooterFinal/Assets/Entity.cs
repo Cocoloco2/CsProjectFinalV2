@@ -10,11 +10,6 @@ public class Entity : MonoBehaviour
     public int health;
     public int maxHealth;
     public float moveSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        // health = maxhealth;
-    }
 
     public void TakeDamage(int amount)
     {

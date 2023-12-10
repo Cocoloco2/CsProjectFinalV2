@@ -19,7 +19,7 @@ public class Player : Entity
     {
         GameObject Weapon = Instantiate(weapon);
         weaponParent = Weapon.GetComponent<WeaponParent>();
-        GameObject Heartbar = Instantiate(heartbar);
+        //GameObject Heartbar = Instantiate(heartbar);
         camera1 = Camera.main;
 
     }
