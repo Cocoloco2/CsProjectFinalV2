@@ -12,10 +12,13 @@ public class ObjectSpawner : MonoBehaviour
     private GameObject enemyPrefab;
     //private GameObject[] enemies = GameObject[10];
     //public PlayerTracker Camera;
+    [SerializeField]
+    private GameObject heartBar;
 
     public void SpawnPlayer(Vector3 pos, Quaternion rotation)
     {
         GameObject player = Instantiate(playerPrefab, pos, rotation);
+        heartBar.SetActive(true);
         
     }
 
