@@ -9,10 +9,8 @@ public class Heartbar : MonoBehaviour
 {
     public GameObject heartPrefab;
     public Player player;
+    public GameObject playerPrefab;
     
-
-    //public int health = 2;
-    //public int maxhealth = 4;
     List<heart_script> hearts = new List<heart_script>();
     
   
@@ -29,19 +27,22 @@ public class Heartbar : MonoBehaviour
     
     private void Start()
     {
+        playerPrefab = GameObject.FindGameObjectWithTag("Player");
+        player = playerPrefab.GetComponent<Player>();
         DrawHearts();
     }
 
     public void DrawHearts()
     {
         ClearHearts();
+        
 
         //Determine how many hearts to make total 
         // based off the max health
 
-        float maxHealthRemainder = player.maxHealth % 2;
+        float maxHealthRemainder = player.getMaxHealth() % 2;
         //Debug.Log("maxHealth is: "+player.maxHealth);
-        int heartsToMake = (int)((player.maxHealth / 2) + maxHealthRemainder);
+        int heartsToMake = (int)((player.getMaxHealth() / 2) + maxHealthRemainder);
         for(int i = 0; i < heartsToMake; i++) 
         {
             CreateEmptyHeart();
@@ -49,7 +50,7 @@ public class Heartbar : MonoBehaviour
 
         for(int i =0; i<hearts.Count; i++)
         {
-            int heartStatusRemainder = (int)Mathf.Clamp(player.health - (i * 2), 0, 2);
+            int heartStatusRemainder = (int)Mathf.Clamp(player.GetHealth() - (i * 2), 0, 2);
             hearts[i].SetHeartImage((HeartStatus)heartStatusRemainder);
         }
     }

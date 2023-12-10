@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Entity
 {
-    public GameObject player;
+  
+    private GameObject player;
     private float distanceToPlayer;
+    public ContactFilter2D contactFilter;
     private void Update()
     {
         trackPlayer();
@@ -18,10 +21,15 @@ public class Enemy : Entity
     }
     void trackPlayer() 
     {
+<<<<<<< HEAD
         player = GameObject.FindGameObjectWithTag("Player");
+=======
+        //player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
+>>>>>>> 4543b7fc52844e9a9c8b07bda932d2b2062ae62b
      distanceToPlayer = Vector2.Distance(transform.position,player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
-        
+        //Debug.Log(player.transform.position);
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
     }
 

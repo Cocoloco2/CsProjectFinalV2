@@ -206,7 +206,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0051916987, y: -0.165095}
+  m_Offset: {x: 0.006113149, y: -0.1614092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -217,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.09166333, y: 0.016903281}
+  m_Size: {x: 0.10824941, y: 0.035332263}
   m_EdgeRadius: 0
 --- !u!95 &5681870098542070544
 Animator:
@@ -252,9 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302c24ac34c540241ab337ba3bed6a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
-  maxHealth: 8
-  moveSpeed: 0.92
+  moveSpeed: 0.7
   weapon: {fileID: 947246883398614214, guid: c001990133f88d6449810f4512162ee7, type: 3}
   heartbar: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
   weaponParent: {fileID: 7589666934210453501, guid: c001990133f88d6449810f4512162ee7, type: 3}

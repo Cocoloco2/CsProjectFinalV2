@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
     public static event Action OnDamaged;
 
-    public int health;
-    public int maxHealth;
+    protected int health;
+    protected int maxHealth;
     public float moveSpeed;
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,14 @@ public class Entity : MonoBehaviour
         // health = maxhealth;
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         health -= amount;
         OnDamaged?.Invoke();
     }
+    public virtual int getMaxHealth() {  return maxHealth; }
+
+    public virtual int GetHealth() { return health; }
+
+    public virtual float GetMoveSpeed() {  return moveSpeed; }
 }

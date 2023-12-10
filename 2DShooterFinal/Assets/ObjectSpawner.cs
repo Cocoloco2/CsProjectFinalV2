@@ -10,10 +10,10 @@ public class ObjectSpawner : MonoBehaviour
 
     [SerializeField]
     private GameObject enemyPrefab;
-    private GameObject enemies;
+    //private GameObject[] enemies = GameObject[10];
     //public PlayerTracker Camera;
 
-    public void SpawnPlayer(Vector2 pos, Quaternion rotation)
+    public void SpawnPlayer(Vector3 pos, Quaternion rotation)
     {
         GameObject player = Instantiate(playerPrefab, pos, rotation);
         
@@ -23,5 +23,9 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject enemy = Instantiate(enemyPrefab, pos, rotation);
         
+    }
+    public GameObject GetPlayerPrefab()
+    {
+        return playerPrefab;
     }
 }
