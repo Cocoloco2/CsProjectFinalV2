@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1440
     height: 869.3334
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -764,23 +764,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b4640000
-      m_LastClickedID: 25780
-      m_ExpandedIDs: 04fbffff9c640000
+      m_SelectedIDs: f8640000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 16fbffff98640000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: GameObjectManager
-        m_OriginalName: GameObjectManager
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 25780
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -960,9 +960,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: aea8f780cf92a3d4f8a09c43044715e5, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 47853e17079a009459ce22a12da8fe3a, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 8406183618590600191, guid: aea8f780cf92a3d4f8a09c43044715e5, type: 2}
+  - m_Target: {fileID: 1229350864765842881, guid: 47853e17079a009459ce22a12da8fe3a, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Characters/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1028,15 +1028,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets
+  - Assets/Characters/Player
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\Holte\GitHub\CsProjectFinalV2\2DShooterFinal
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f6650000
-    m_LastClickedID: 26102
+    scrollPos: {x: 0, y: 14.333374}
+    m_SelectedIDs: 28670000
+    m_LastClickedID: 26408
     m_ExpandedIDs: 00000000f6650000f866000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 157.66669}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 252
@@ -1191,7 +1191,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25780
+  m_LastSelectedObjectID: 25782
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
