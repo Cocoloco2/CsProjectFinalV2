@@ -305,12 +305,10 @@ MonoBehaviour:
   Floor: {fileID: 11400000, guid: 284cb9c7d4efb504e979b3a8a03b749f, type: 2}
   Wall: {fileID: 11400000, guid: d713ef2f849f4b14a9d63ef972dbdf4f, type: 2}
   Background: {fileID: 11400000, guid: 3f83d6e655fb4dd4fbace7d1367a5e18, type: 2}
-  MapWidth: 30
-  MapHeight: 30
   objectSpawner: {fileID: 493191132}
   MaximumWalkers: 10
   TileCount: 0
-  FillPercentage: 0.4
+  FillPercentage: 0.7
   WaitTime: 0
 --- !u!4 &407291352
 Transform:

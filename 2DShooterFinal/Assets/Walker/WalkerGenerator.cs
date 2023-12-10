@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class WalkerGenerator : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class WalkerGenerator : MonoBehaviour
     {
         FLOOR,
         WALL,
-        EMPTY
+        EMPTY,
+        BACKGROUND
     }
 
 
@@ -22,8 +24,8 @@ public class WalkerGenerator : MonoBehaviour
     public Tile Floor; //reference for floor sprite
     public Tile Wall; //reference for wall sprite
     public Tile Background;
-    public int MapWidth = 30; 
-    public int MapHeight = 30;
+    public static int MapWidth = 20; 
+    public static int MapHeight = 20;
     [SerializeField] private ObjectSpawner objectSpawner; //reference to the objectSpawner
    
 
@@ -35,9 +37,24 @@ public class WalkerGenerator : MonoBehaviour
 
     void Start()
     {
+        //InitializeBackground();
         InitializeGrid();
     }
 
+    /*void InitializeBackground()
+    {
+        gridHandler = new Grid[MapWidth+2, MapHeight+2];
+
+        for (int x = 0; x < gridHandler.GetLength(0); x++) //loops through the grid and makes every spot empty
+        {
+            for (int y = 0; y < gridHandler.GetLength(1); y++)
+            {
+                Vector3Int pos = new Vector3Int(x, y, 0);
+                tileMap.SetTile(pos, Background);
+                //gridHandler[x, y] = Grid.EMPTY;
+            }
+        }
+    }*/
 
     //main setup of our grid. Grid dimension and properties setup, so we can create our first walker object
     void InitializeGrid()
@@ -57,7 +74,7 @@ public class WalkerGenerator : MonoBehaviour
         Walkers = new List<WalkerObject>(); //create new instance of the walker object list
 
         //gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2
-        Vector3Int TileCenter = new Vector3Int(10, 10, 0); //reference to the exact center of tilemap
+        Vector3Int TileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0); //reference to the exact center of tilemap
 
         //create walkerobject
         WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f); 
@@ -186,11 +203,11 @@ public class WalkerGenerator : MonoBehaviour
     IEnumerator CreateWalls()
     {
         //loop through our grid. we say '-1' since there needs to be space for the walls
-        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++) //loop through our x-values of grid
+        for (int x = 0; x < gridHandler.GetLength(0) -1; x++) //loop through our x-values of grid
         {
-            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)  //loop through our y-values of grid
+            for (int y = 0; y < gridHandler.GetLength(1) -1; y++)  //loop through our y-values of grid
             {
-                if (gridHandler[x, y] == Grid.FLOOR) //if the x and value contain a floor: continue
+                if (gridHandler[x, y] == Grid.FLOOR) //if the x and y value contain a floor: continue
                 {
                     bool hasCreatedWall = false;
 
@@ -223,16 +240,38 @@ public class WalkerGenerator : MonoBehaviour
                     if (hasCreatedWall)
                     {
                         yield return new WaitForSeconds(WaitTime);
-                    }
+                    }                   
                 }
             }
         }
+
         //sets the Vector position of the player
         Vector2 pos;
         pos = new Vector2(2.0f, 2.0f);
-        
+
         //calls the SpawnPlayer method from the ObjectSpawner script
         objectSpawner.SpawnPlayer(pos, transform.rotation);
+
+        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++) //loop through our x-values of grid
+        {
+            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)  //loop through our y-values of grid
+            {
+                if (gridHandler[x, y] == Grid.FLOOR) //if the x and y value contain a floor: continue
+                {
+
+
+                    if (gridHandler[x+1, y] == Grid.WALL && gridHandler[x, y+1] == Grid.WALL)
+                    {
+                        Vector2Int pos1;
+                        pos1 = new Vector2Int(x/5, y/5);
+                        objectSpawner.SpawnEnemy(pos1, transform.rotation);
+                    }
+
+                }
+            }
+        }
+
+
 
     }
 }

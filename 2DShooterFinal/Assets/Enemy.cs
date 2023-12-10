@@ -17,7 +17,8 @@ public class Enemy : Entity
         //Debug.Log(health);
     }
     void trackPlayer() 
-    { 
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
      distanceToPlayer = Vector2.Distance(transform.position,player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         

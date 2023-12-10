@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerTracker : MonoBehaviour
 {
-    private Transform target;
+ /*   private Transform target;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +27,5 @@ public class PlayerTracker : MonoBehaviour
    public void playerTracker(GameObject player)
     {
         this.transform.position = player.transform.position;
-    }
+    }*/
 }
