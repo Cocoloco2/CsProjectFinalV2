@@ -30,6 +30,7 @@ public class WalkerGenerator : MonoBehaviour
     private static float y = 10.0f;
     private float x1 = x / 5f;
     private float y1 = x / 5f;
+    
 
 
     public int MaximumWalkers = 10;
@@ -201,7 +202,7 @@ public class WalkerGenerator : MonoBehaviour
                     bool hasCreatedWall = false;
 
                     //4 diffrent if statements creating a wall beside the floor tile detected
-                    if (gridHandler[x + 1, y] == Grid.EMPTY) 
+                    if (gridHandler[x + 1, y] == Grid.EMPTY)
                     {
                         tileMap2.SetTile(new Vector3Int(x + 1, y, 0), Wall);
                         gridHandler[x + 1, y] = Grid.WALL;
@@ -235,11 +236,26 @@ public class WalkerGenerator : MonoBehaviour
         }
         //sets the Vector position of the player
         Vector3 pos;
-        pos = new Vector3(2f, 2f,0f);
-        
+        pos = new Vector3(2f, 2f, 0f);
+
         //calls the SpawnPlayer method from the ObjectSpawner script
         objectSpawner.SpawnPlayer(pos, transform.rotation);
-        objectSpawner.SpawnEnemy(new Vector2(2.5f,2.5f), transform.rotation);
+        
 
+        for (int x = 0; x < gridHandler.GetLength(0); x++) //loop through our x-values of grid
+        {
+            for (int y = 0; y < gridHandler.GetLength(1); y++)  //loop through our y-values of grid
+            {
+                if (gridHandler[x, y] == Grid.FLOOR) //if the x and value contain a floor: continue
+                {
+                    //4 diffrent if statements creating a wall beside the floor tile detected
+                    if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x - 1, y] == Grid.WALL && gridHandler[x, y - 1] == Grid.WALL)
+                    {
+                        objectSpawner.SpawnEnemy(new Vector2(x/5, y/5), transform.rotation);
+                    }
+
+                }
+            }
+        }
     }
 }

@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5227751586004904252, guid: 10a25757f35654c43a5ae15e4e317641, type: 3}
   enemyPrefab: {fileID: 7338944763509621102, guid: 0615179ba9422974b9a92272a075bbe6, type: 3}
+  heartBar: {fileID: 1757650905}
 --- !u!4 &493191133
 Transform:
   m_ObjectHideFlags: 0
@@ -1127,6 +1128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeartBar
       objectReference: {fileID: 0}
+    - target: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2556860287731048342, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1216,6 +1221,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
+--- !u!1 &1757650905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
+  m_PrefabInstance: {fileID: 918888093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1897442661
 GameObject:
   m_ObjectHideFlags: 0
