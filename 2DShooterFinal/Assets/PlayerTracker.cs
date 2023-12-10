@@ -4,13 +4,13 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerTracker : MonoBehaviour
-<<<<<<< HEAD
 {
- /*   private Transform target;
-=======
-{/*
+    /*
     private Transform target;
->>>>>>> 4543b7fc52844e9a9c8b07bda932d2b2062ae62b
+
+{
+    private Transform target;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +32,10 @@ public class PlayerTracker : MonoBehaviour
    public void playerTracker(GameObject player)
     {
         this.transform.position = player.transform.position;
-<<<<<<< HEAD
-    }*/
-=======
+
     }
-    */
->>>>>>> 4543b7fc52844e9a9c8b07bda932d2b2062ae62b
+
+    }
+    
+*/
 }

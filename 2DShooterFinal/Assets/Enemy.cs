@@ -21,12 +21,12 @@ public class Enemy : Entity
     }
     void trackPlayer() 
     {
-<<<<<<< HEAD
+
         player = GameObject.FindGameObjectWithTag("Player");
-=======
+
         //player = GameObject.Find("Player");
         player = GameObject.FindWithTag("Player");
->>>>>>> 4543b7fc52844e9a9c8b07bda932d2b2062ae62b
+
      distanceToPlayer = Vector2.Distance(transform.position,player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
         //Debug.Log(player.transform.position);

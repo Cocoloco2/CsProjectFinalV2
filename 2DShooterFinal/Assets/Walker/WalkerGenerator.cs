@@ -79,11 +79,11 @@ public class WalkerGenerator : MonoBehaviour
         Walkers = new List<WalkerObject>(); //create new instance of the walker object list
 
         //gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2
-<<<<<<< HEAD
+
         Vector3Int TileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0); //reference to the exact center of tilemap
-=======
+
         TileCenter = new Vector3Int(10, 10, 0); //reference to the exact center of tilemap
->>>>>>> 4543b7fc52844e9a9c8b07bda932d2b2062ae62b
+
 
         //create walkerobject
         WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f); 
@@ -256,15 +256,11 @@ public class WalkerGenerator : MonoBehaviour
         }
 
         //sets the Vector position of the player
-<<<<<<< HEAD
+
         Vector2 pos;
         pos = new Vector2(2.0f, 2.0f);
-
-=======
-        Vector3 pos;
-        pos = new Vector3(2f, 2f,0f);
         
->>>>>>> 4543b7fc52844e9a9c8b07bda932d2b2062ae62b
+
         //calls the SpawnPlayer method from the ObjectSpawner script
         objectSpawner.SpawnPlayer(pos, transform.rotation);
         objectSpawner.SpawnEnemy(new Vector2(2.5f,2.5f), transform.rotation);
