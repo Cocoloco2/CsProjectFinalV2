@@ -8,10 +8,11 @@ using static UnityEditor.Progress;
 public class Heartbar : MonoBehaviour
 {
     public GameObject heartPrefab;
+    public GameObject playerObj;
     public Player player;
-    
-    
 
+
+    
     //public int health = 2;
     //public int maxhealth = 4;
     List<heart_script> hearts = new List<heart_script>();
@@ -31,6 +32,12 @@ public class Heartbar : MonoBehaviour
     private void Start()
     {
         DrawHearts();
+    }
+
+    private void Update()
+    {
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.GetComponent<Player>();
     }
 
     public void DrawHearts()
