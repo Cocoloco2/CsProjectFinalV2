@@ -16,7 +16,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private GameObject heartBar;
 
-    public void SpawnPlayer(Vector3 pos, Quaternion rotation)
+    public void SpawnPlayer(Vector2 pos, Quaternion rotation)
     {
         GameObject player = Instantiate(playerPrefab, pos, rotation);
         heartBar.SetActive(true);

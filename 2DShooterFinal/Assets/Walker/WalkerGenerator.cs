@@ -63,13 +63,13 @@ public class WalkerGenerator : MonoBehaviour
         Walkers = new List<WalkerObject>(); //create new instance of the walker object list
 
         //gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2
-        TileCenter = new Vector3Int(10, 10, 0); //reference to the exact center of tilemap
+        TileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0); //reference to the exact center of tilemap
 
         //create walkerobject
         WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f); 
         gridHandler[TileCenter.x, TileCenter.y] = Grid.FLOOR; //set current grid location to floor
         tileMap.SetTile(TileCenter, Floor);
-        Debug.Log(TileCenter.x + " " + TileCenter.y);
+        //Debug.Log(TileCenter.x + " " + TileCenter.y);
         Walkers.Add(curWalker); //add current walker to walkers list
 
         TileCount++; //increase tilecount
@@ -235,12 +235,20 @@ public class WalkerGenerator : MonoBehaviour
             }
         }
         //sets the Vector position of the player
-        Vector3 pos;
-        pos = new Vector3(2f, 2f, 0f);
+       
+        Vector2 playerPos;
+        playerPos = new Vector2(TileCenter.x/5, TileCenter.y/5);
 
         //calls the SpawnPlayer method from the ObjectSpawner script
-        objectSpawner.SpawnPlayer(pos, transform.rotation);
-        
+        objectSpawner.SpawnPlayer(playerPos, transform.rotation);
+
+        objectSpawner.SpawnEnemy(new Vector2(playerPos.x, playerPos.y + 2), transform.rotation);
+        objectSpawner.SpawnEnemy(new Vector2(playerPos.x + 2, playerPos.y), transform.rotation);
+        objectSpawner.SpawnEnemy(new Vector2(playerPos.x + 2, playerPos.y + 2), transform.rotation);
+        objectSpawner.SpawnEnemy(new Vector2(playerPos.x - 2, playerPos.y + 3), transform.rotation);
+        objectSpawner.SpawnEnemy(new Vector2(playerPos.x - 1, playerPos.y - 3), transform.rotation);
+        objectSpawner.SpawnEnemy(new Vector2(playerPos.x + 1, playerPos.y - 3), transform.rotation);
+
 
         for (int x = 0; x < gridHandler.GetLength(0); x++) //loop through our x-values of grid
         {
@@ -248,10 +256,12 @@ public class WalkerGenerator : MonoBehaviour
             {
                 if (gridHandler[x, y] == Grid.FLOOR) //if the x and value contain a floor: continue
                 {
+                    
+
                     //4 diffrent if statements creating a wall beside the floor tile detected
                     if (gridHandler[x + 1, y] == Grid.WALL && gridHandler[x - 1, y] == Grid.WALL && gridHandler[x, y - 1] == Grid.WALL)
                     {
-                        objectSpawner.SpawnEnemy(new Vector2(x/5, y/5), transform.rotation);
+                        objectSpawner.SpawnEnemy(new Vector2(playerPos.x+2, playerPos.y+2), transform.rotation);
                     }
 
                 }

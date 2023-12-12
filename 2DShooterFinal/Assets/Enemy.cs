@@ -4,20 +4,30 @@ using System.Runtime.Serialization;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : Entity
 {
   
     private GameObject player;
     private float distanceToPlayer;
+    private int killCount;
     private void Update()
     {
         trackPlayer();
-        if (health <= 0) { 
+        if (health <= 0) {
+            killCount++;
             Destroy(gameObject);
             }
         //Debug.Log(health);
+        Debug.Log(killCount);
+
+        if (killCount >= 5)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
+
     void trackPlayer() 
     {
         //player = GameObject.Find("Player");
@@ -35,5 +45,7 @@ public class Enemy : Entity
             collision.gameObject.GetComponent<Player>().TakeDamage(1);
         }
     }
+
+
 
 }

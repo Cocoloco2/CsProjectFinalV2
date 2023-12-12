@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEditor.PlayerSettings;
 
 public class Player : Entity
@@ -32,6 +33,10 @@ public class Player : Entity
         pointerInput = getPointerInput();
         weaponParent.PointerPosition = pointerInput;
         Debug.Log(health);
+        if (health == 0)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
     private Vector2 getPointerInput() 
     {
