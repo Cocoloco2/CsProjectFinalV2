@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 412555264434732035}
   - component: {fileID: 5681870098542070544}
   - component: {fileID: -145753233744686123}
-  m_Layer: 0
+  - component: {fileID: -9103874416026314719}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -259,3 +260,38 @@ MonoBehaviour:
   heartbar: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
   weaponParent: {fileID: 7589666934210453501, guid: c001990133f88d6449810f4512162ee7, type: 3}
   PointerPosition: {fileID: -7319332357480716734, guid: 6f78b755d3c5285448d9c3f5931a376e, type: 3}
+--- !u!58 &-9103874416026314719
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5227751586004904252}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004249744, y: -0.09656737}
+  serializedVersion: 2
+  m_Radius: 0.04951305

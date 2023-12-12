@@ -225,53 +225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &232158317
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 232158318}
-  - component: {fileID: 232158319}
-  m_Layer: 0
-  m_Name: Entity
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &232158318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232158317}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &232158319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232158317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 690d186b596dcb14db7d979c7ba57f78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  moveSpeed: 0
 --- !u!1 &407291350
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5227751586004904252, guid: 10a25757f35654c43a5ae15e4e317641, type: 3}
-  enemyPrefab: {fileID: 7338944763509621102, guid: 0615179ba9422974b9a92272a075bbe6, type: 3}
+  enemyPrefab: {fileID: 5868578090627929385, guid: 6a11d5e9fc1d98247a34e4ff22990e29, type: 3}
 --- !u!4 &493191133
 Transform:
   m_ObjectHideFlags: 0
@@ -517,7 +470,7 @@ GameObject:
   - component: {fileID: 798000792}
   - component: {fileID: 798000791}
   - component: {fileID: 798000790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CollisionObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +923,7 @@ GameObject:
   - component: {fileID: 866499596}
   - component: {fileID: 866499595}
   - component: {fileID: 866499594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1323,6 @@ SceneRoots:
   - {fileID: 2038771481}
   - {fileID: 15489127}
   - {fileID: 2013578489}
-  - {fileID: 232158318}
   - {fileID: 407291352}
   - {fileID: 519420032}
   - {fileID: 493191133}

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    moveSpeed = GetComponent<Player>().moveSpeed;
+    moveSpeed = GetComponent<Player>().getMoveSpeed();
     rb = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
         
@@ -65,10 +65,11 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
-
+    
     void OnMove (InputValue movementValue) {
         movementInput = movementValue.Get<Vector2>();
     
 
     }
+    
 }
