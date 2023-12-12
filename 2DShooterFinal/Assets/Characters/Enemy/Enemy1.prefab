@@ -203,7 +203,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 5868578090627929385}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 11
   moveSpeed: 0.27
+  debugDistanceToPlayer: 0
 --- !u!114 &6194948860988299264
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5227751586004904252, guid: 10a25757f35654c43a5ae15e4e317641, type: 3}
   enemyPrefab: {fileID: 5868578090627929385, guid: 6a11d5e9fc1d98247a34e4ff22990e29, type: 3}
+  heartBar: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
 --- !u!4 &493191133
 Transform:
   m_ObjectHideFlags: 0
