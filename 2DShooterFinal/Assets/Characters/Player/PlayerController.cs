@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         if (movementInput != Vector2.zero)
         {
+            
             bool success = TryMove(movementInput);
 
             if (!success)
@@ -43,10 +44,11 @@ public class PlayerController : MonoBehaviour
             }
             animator.SetBool("isMoving", success);
         }
-        else {
+        else 
+        {
             animator.SetBool("isMoving", false);
         }
-}
+    }
 
     private bool TryMove(Vector2 direction) {
 
@@ -59,9 +61,11 @@ public class PlayerController : MonoBehaviour
             if (count == 0)
             {
                 rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+            Debug.Log(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
                 return true;
          
         } else {
+            //Debug.Log(count);
             return false;
         }
     }
@@ -69,7 +73,6 @@ public class PlayerController : MonoBehaviour
     void OnMove (InputValue movementValue) {
         movementInput = movementValue.Get<Vector2>();
     
-
     }
     
 }

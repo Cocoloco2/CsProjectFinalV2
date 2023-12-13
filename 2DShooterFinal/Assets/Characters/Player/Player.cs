@@ -32,7 +32,7 @@ public class Player : Entity
         weaponParent.transform.position = transform.position;
         pointerInput = getPointerInput();
         weaponParent.PointerPosition = pointerInput;
-        Debug.Log(health);
+        //Debug.Log(health);
         if (health == 0)
         {
             SceneManager.LoadSceneAsync(0);
