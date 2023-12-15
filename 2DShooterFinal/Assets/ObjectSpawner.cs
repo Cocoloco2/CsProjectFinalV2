@@ -11,16 +11,17 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private GameObject enemyPrefab;
 
-    
+    [SerializeField]
     private GameObject heartBar;
 
     private void Start()
     {
-        heartBar = GameObject.FindGameObjectWithTag("HeartBar");
+       // heartBar = GameObject.FindGameObjectWithTag("HeartBar");
     }
     public void SpawnPlayer(Vector2 pos, Quaternion rotation)
     {
         GameObject player = Instantiate(playerPrefab, pos, rotation);
+
         heartBar.SetActive(true);
     }
 

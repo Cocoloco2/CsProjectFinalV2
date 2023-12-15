@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5751063270903379782}
   m_Layer: 5
   m_Name: HeartBar
-  m_TagString: Untagged
+  m_TagString: HeartBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
