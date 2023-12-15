@@ -26,14 +26,8 @@ public class Enemy : Entity
     {
         player = GameObject.FindWithTag("Player");
         //distanceToPlayer = Vector2.Distance(transform.position,player.transform.position);
-       
-        if (debugDistanceToPlayer == true) {
-            distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-            //Debug.Log(distanceToPlayer);
-        }
-       
-        Vector2 direction = player.transform.position - transform.position;
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+      
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

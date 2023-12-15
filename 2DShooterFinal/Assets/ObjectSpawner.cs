@@ -10,8 +10,6 @@ public class ObjectSpawner : MonoBehaviour
 
     [SerializeField]
     private GameObject enemyPrefab;
-    //private GameObject[] enemies = GameObject[10];
-    //public PlayerTracker Camera;
 
     [SerializeField]
     private GameObject heartBar;

@@ -1081,6 +1081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeartBar
       objectReference: {fileID: 0}
+    - target: {fileID: 440715879727418900, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2556860287731048342, guid: 36e68075d49f32d4b85bbacc657a412f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
