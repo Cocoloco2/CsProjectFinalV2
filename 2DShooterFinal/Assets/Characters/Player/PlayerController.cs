@@ -9,8 +9,12 @@ using UnityEngine.Rendering;
 public class PlayerController : MonoBehaviour
 {
     private float moveSpeed;
-    public float collisionOffset = 0.05f;
-    public ContactFilter2D movementFilter;
+
+    [SerializeField]
+    private float collisionOffset = 0.05f;
+
+    [SerializeField]
+    private ContactFilter2D movementFilter;
 
     Vector2 movementInput;
     Rigidbody2D rb;
@@ -18,7 +22,7 @@ public class PlayerController : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
     moveSpeed = GetComponent<Player>().getMoveSpeed();
     rb = GetComponent<Rigidbody2D>();
