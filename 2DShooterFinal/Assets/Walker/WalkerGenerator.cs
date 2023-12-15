@@ -26,10 +26,7 @@ public class WalkerGenerator : MonoBehaviour
     public int MapHeight = 30;
     [SerializeField] private ObjectSpawner objectSpawner; //reference to the objectSpawner
     private Vector3Int TileCenter;
-    private static float x = 10.0f;
-    private static float y = 10.0f;
-    private float x1 = x / 5f;
-    private float y1 = x / 5f;
+    
     
 
 
