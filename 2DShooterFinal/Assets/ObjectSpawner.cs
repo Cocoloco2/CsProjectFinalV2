@@ -14,10 +14,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private GameObject heartBar;
 
-    private void Start()
-    {
-       // heartBar = GameObject.FindGameObjectWithTag("HeartBar");
-    }
+    //method to spawn a player and activate the healthbar ui feature
     public void SpawnPlayer(Vector2 pos, Quaternion rotation)
     {
         GameObject player = Instantiate(playerPrefab, pos, rotation);
@@ -25,13 +22,11 @@ public class ObjectSpawner : MonoBehaviour
         heartBar.SetActive(true);
     }
 
+    //method to spawn an enemy
     public void SpawnEnemy(Vector2 pos, Quaternion rotation)
     {
         GameObject enemy = Instantiate(enemyPrefab, pos, rotation);
         
     }
-    public GameObject GetPlayerPrefab()
-    {
-        return playerPrefab;
-    }
+    
 }

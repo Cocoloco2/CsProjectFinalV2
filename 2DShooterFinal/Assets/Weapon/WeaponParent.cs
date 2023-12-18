@@ -6,19 +6,19 @@ using UnityEngine.UIElements;
 
 public class WeaponParent : MonoBehaviour
 {
+    //makes it possible for other scripts to fetch or alter this variable
     public Vector2 PointerPosition { get; set; }
 
     private void Update()
     {
 
         //makes sure the object always spawn at the mouse position
-
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
         transform.right = direction;
         
         Vector2 scale = transform.localScale;
         
-        //if scale is negative it will flip the object around
+        //if scale is negative it will flip the object around on the y axis
         if(direction.x < 0)
         {
             scale.y = -1;
