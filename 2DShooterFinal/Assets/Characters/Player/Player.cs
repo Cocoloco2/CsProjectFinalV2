@@ -1,3 +1,5 @@
+//Original code from: https://www.youtube.com/watch?v=7iYWpzL9GkM&t=26s (sprites toturial)
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

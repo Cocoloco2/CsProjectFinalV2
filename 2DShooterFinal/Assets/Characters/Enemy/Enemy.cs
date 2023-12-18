@@ -10,10 +10,13 @@ public class Enemy : Entity
 {
   
     private GameObject player;
-    private float distanceToPlayer;
 
+    //has not been implemented in this iteration
+    /*
     [SerializeField]
     private bool debugDistanceToPlayer = false;
+    */
+
     private void Update()
     {
         trackPlayer();
