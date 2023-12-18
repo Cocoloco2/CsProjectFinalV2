@@ -1,3 +1,9 @@
+/*
+This code is inspired by GarnetKane99
+15,131 views  Jan 2, 2023
+RandomWalkerAlgo_YT - https://github.com/GarnetKane99/RandomWalkerAlgo_YT
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

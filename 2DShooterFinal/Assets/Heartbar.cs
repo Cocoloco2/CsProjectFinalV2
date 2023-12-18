@@ -1,3 +1,9 @@
+/*
+This code is inspired by BMo
+march 21. 2022
+https://www.youtube.com/watch?v=5NViMw-ALAo&t=1s
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
