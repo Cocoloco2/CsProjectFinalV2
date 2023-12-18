@@ -17,9 +17,7 @@ public class Heartbar : MonoBehaviour
     public GameObject playerObj;
     public Player player;
 
-
-    List<heart_script> hearts = new List<heart_script>();
-    
+    List<heart_script> hearts = new List<heart_script>(); //list to contain the hearts
     
     private void OnEnable()
     {
@@ -39,8 +37,8 @@ public class Heartbar : MonoBehaviour
 
     private void Update()
     {
-        playerObj = GameObject.FindGameObjectWithTag("Player");
-        player = playerObj.GetComponent<Player>();
+        playerObj = GameObject.FindGameObjectWithTag("Player");//finds the object with 'Player' tag
+        player = playerObj.GetComponent<Player>();//access to variables in 'Player' component
    
     }
 
@@ -51,18 +49,19 @@ public class Heartbar : MonoBehaviour
         //Determine how many hearts to make total 
         // based off the max health
        
-        float maxHealthRemainder = player.getMaxHealth() % 2;
+        float maxHealthRemainder = player.getMaxHealth() % 2; //calculates remainder. either 0 if even or 1 if uneven.
         //Debug.Log("maxHealth is: "+player.maxHealth);
-        int heartsToMake = (int)((player.getMaxHealth() / 2) + maxHealthRemainder);
+        int heartsToMake = (int)((player.getMaxHealth() / 2) + maxHealthRemainder); //calculates hearts to draw
         for(int i = 0; i < heartsToMake; i++) 
         {
-            CreateEmptyHeart();
+            CreateEmptyHeart(); //creates empty hearts until the above value has been met
         }
 
         for(int i =0; i<hearts.Count; i++)
         {
-            int heartStatusRemainder = (int)Mathf.Clamp(player.getHealth() - (i * 2), 0, 2);
-            hearts[i].SetHeartImage((HeartStatus)heartStatusRemainder);
+            //clamps the values to return 0, 1 or 2 corresponding to the heartstatus enum
+            int heartStatusRemainder = (int)Mathf.Clamp(player.getHealth() - (i * 2), 0, 2); 
+            hearts[i].SetHeartImage((HeartStatus)heartStatusRemainder); //fills the empty hearts according to the values returned above
         }
     }
 
@@ -70,17 +69,17 @@ public class Heartbar : MonoBehaviour
     public void CreateEmptyHeart()
     {
         
-        GameObject newHeart = Instantiate(heartPrefab);
+        GameObject newHeart = Instantiate(heartPrefab); //instantiate heartprefab
         newHeart.transform.SetParent(transform, false);
 
-        heart_script heartComponent = newHeart.GetComponent<heart_script>();
-        heartComponent.SetHeartImage(HeartStatus.Empty);
-        hearts.Add(heartComponent);
+        heart_script heartComponent = newHeart.GetComponent<heart_script>(); 
+        heartComponent.SetHeartImage(HeartStatus.Empty); //sets the heartstatus to empty
+        hearts.Add(heartComponent); //add the empty heart to list
         //newHeart.transform.localScale = new Vector2(2, 2);
         
     }
 
-    public void ClearHearts()
+    public void ClearHearts()//clear all hearts to make sure the game always starts from a fresh
     {
         foreach(Transform t in transform)
         {
@@ -88,7 +87,4 @@ public class Heartbar : MonoBehaviour
         }
         hearts = new List<heart_script> ();
     }
-
-
-
 }
