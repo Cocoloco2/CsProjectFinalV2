@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
@@ -21,9 +22,9 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
-    // Start is called before the first frame update
     private void Start()
     {
+    //uses the get method from the "Player" script to store it inside the moveSpeed variable
     moveSpeed = GetComponent<Player>().getMoveSpeed();
     rb = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
@@ -32,17 +33,20 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //if the player is not already getting an input
         if (movementInput != Vector2.zero)
         {
-            
+            //check if there is no objects blocking
             bool success = TryMove(movementInput);
 
             if (!success)
             {
+                //check if there is no obstacle blocking on the x axis
                 success = TryMove(new Vector2(movementInput.x, 0));
 
                 if (!success)
                 {
+                    //check is there is no obstacle on the y axis
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
             }
@@ -56,24 +60,27 @@ public class PlayerController : MonoBehaviour
 
     private bool TryMove(Vector2 direction) {
 
-            int count = rb.Cast(
-                movementInput,
-                movementFilter,
-                castCollisions,
-                moveSpeed * Time.fixedDeltaTime + collisionOffset
-                );
-            if (count == 0)
-            {
-                rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
-            Debug.Log(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
-                return true;
+        //stores the amount of collisions inside the count variable  
+        int count = rb.Cast(
+            movementInput,
+            movementFilter,
+            castCollisions,
+            moveSpeed * Time.fixedDeltaTime + collisionOffset
+            );
+        // there is no collisons
+        if (count == 0)
+        {
+            //move the RigidBody of the GameObject, making it move in the direction input
+            rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+        
+            return true;
          
         } else {
-            //Debug.Log(count);
+            
             return false;
         }
     }
-    
+    //method used by the input system to get the input from the keyboard
     void OnMove (InputValue movementValue) {
         movementInput = movementValue.Get<Vector2>();
     
